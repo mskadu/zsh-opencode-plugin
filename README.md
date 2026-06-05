@@ -5,10 +5,27 @@ open-source AI coding agent for the terminal.
 
 ## Enable
 
+### Oh‑my‑zsh (custom plugin)
+
+Clone into the custom plugins directory, then enable it:
+
+```zsh
+git clone https://github.com/anomalyco/zsh-opencode-plugin \
+  "$ZSH_CUSTOM/plugins/opencode"
+```
+
 Add `opencode` to your plugins array in `.zshrc`:
 
 ```zsh
 plugins=(... opencode)
+```
+
+### Standalone (source directly)
+
+Clone anywhere and source the plugin file from `.zshrc`:
+
+```zsh
+source /path/to/opencode.plugin.zsh
 ```
 
 ## Quick start
