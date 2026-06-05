@@ -5,45 +5,18 @@ fi
 0="${${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}:${0:#/*}}"
 
 # -------------------------------------------------------------------
-# Functions
-# -------------------------------------------------------------------
-
-function opencode_current_model() {
-  command opencode stats 2>/dev/null | \
-    command grep -i "model" | \
-    command head -1 | \
-    command sed 's/.*:\s*//'
-}
-
-function opencode_prompt_info() {
-  if ! command opencode stats &>/dev/null; then
-    return
-  fi
-  local model
-  model=$(opencode_current_model)
-  if [[ -n "$model" ]]; then
-    echo "OC[$model]"
-  fi
-}
-
-function opencode_version() {
-  command opencode --version
-}
-
-# -------------------------------------------------------------------
-# Aliases — core
+# Aliases — core TUI
 # -------------------------------------------------------------------
 
 alias oc='opencode'
 alias occ='opencode --continue'
 alias ocfork='opencode --fork --continue'
 alias ocmodel='opencode --model'
-alias ocagent='opencode --agent'
 alias ocprompt='opencode --prompt'
 alias ocpure='opencode --pure'
 
 # -------------------------------------------------------------------
-# Aliases — run mode
+# Aliases — run (non-interactive)
 # -------------------------------------------------------------------
 
 alias ocr='opencode run'
@@ -92,10 +65,9 @@ alias ocmcplogout='opencode mcp logout'
 alias ocmcpdebug='opencode mcp debug'
 
 # -------------------------------------------------------------------
-# Aliases — agent management
+# Aliases — agents
 # -------------------------------------------------------------------
 
-# NOTE: Shadows the --agent flag alias above
 alias ocagent='opencode agent'
 alias ocagentls='opencode agent list'
 alias ocagentcreate='opencode agent create'
@@ -140,7 +112,7 @@ alias ocplug='opencode plug'
 alias ocpluging='opencode plugin --global'
 
 # -------------------------------------------------------------------
-# Aliases — debug / db
+# Aliases — debug / database
 # -------------------------------------------------------------------
 
 alias ocdebug='opencode debug'
@@ -148,7 +120,7 @@ alias ocdb='opencode db'
 alias ocdbpath='opencode db path'
 
 # -------------------------------------------------------------------
-# Aliases — utilities
+# Aliases — maintenance
 # -------------------------------------------------------------------
 
 alias ocupgrade='opencode upgrade'
@@ -166,6 +138,8 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_opencode" ]]; then
 fi
 
 {
-  command opencode completion zsh | tee "$ZSH_CACHE_DIR/completions/_opencode" > /dev/null
+  mkdir -p "$ZSH_CACHE_DIR/completions"
+  command opencode completion zsh \
+    | tee "$ZSH_CACHE_DIR/completions/_opencode" \
+    > /dev/null
 } &|
-
