@@ -2,8 +2,6 @@ if (( ! $+commands[opencode] )); then
   return
 fi
 
-0="${${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}:${0:#/*}}"
-
 # -------------------------------------------------------------------
 # Aliases — core TUI
 # -------------------------------------------------------------------
@@ -140,9 +138,4 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_opencode" ]]; then
   _comps[opencode]=_opencode
 fi
 
-{
-  mkdir -p "$ZSH_CACHE_DIR/completions"
-  command opencode completion zsh \
-    | tee "$ZSH_CACHE_DIR/completions/_opencode" \
-    > /dev/null
-} &|
+command opencode completion zsh >! "$ZSH_CACHE_DIR/completions/_opencode" &|

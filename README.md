@@ -2,7 +2,6 @@
 
 Zsh plugin for the [opencode](https://opencode.ai) AI coding agent.
 Compatible with [oh‑my‑zsh](https://github.com/ohmyzsh/ohmyzsh).
-Not yet in the plugin registry — use the custom path below until merged.
 
 ## Prerequisites
 
@@ -16,12 +15,7 @@ Not yet in the plugin registry — use the custom path below until merged.
 
 ## Enable
 
-### Oh‑my‑zsh (custom plugin)
-
-```zsh
-git clone https://github.com/mskadu/zsh-opencode-plugin \
-  "$ZSH_CUSTOM/plugins/opencode"
-```
+### Oh‑my‑zsh
 
 Add `opencode` to your plugins array in `.zshrc`:
 
@@ -31,7 +25,7 @@ plugins=(... opencode)
 
 ### Standalone (source directly)
 
-Clone anywhere and source the plugin file from `.zshrc`:
+Clone the repo and source the plugin file from `.zshrc`:
 
 ```zsh
 source /path/to/opencode.plugin.zsh
@@ -162,6 +156,3 @@ If completions are missing or outdated, regenerate them manually:
 ```zsh
 opencode completion zsh > "$ZSH_CACHE_DIR/completions/_opencode"
 ```
-
-The plugin ships with a static completion file as a fallback. The dynamically
-generated version takes precedence once cached.
