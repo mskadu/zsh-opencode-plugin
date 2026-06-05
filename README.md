@@ -17,10 +17,11 @@ open-source AI coding agent for the terminal.
 
 ### Oh‑my‑zsh (custom plugin)
 
-Clone into the custom plugins directory, then enable it:
+Not yet in the [oh‑my‑zsh](https://github.com/ohmyzsh/ohmyzsh) plugin registry.
+Use the custom plugins path until it's merged upstream.
 
 ```zsh
-git clone https://github.com/anomalyco/zsh-opencode-plugin \
+git clone https://github.com/mskadu/zsh-opencode-plugin \
   "$ZSH_CUSTOM/plugins/opencode"
 ```
 
