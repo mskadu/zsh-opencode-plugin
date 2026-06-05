@@ -118,6 +118,7 @@ alias ocplg='opencode plugin --global'
 alias ocdbg='opencode debug'
 alias ocdb='opencode db'
 alias ocdbp='opencode db path'
+alias ocdbm='opencode db migrate'
 
 # -------------------------------------------------------------------
 # Aliases — maintenance

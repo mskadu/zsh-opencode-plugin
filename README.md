@@ -6,9 +6,9 @@ Not yet in the plugin registry — use the custom path below until merged.
 
 ## Prerequisites
 
-- **opencode CLI** — install with `npm install -g @opencode/qd` or follow the
-  [official install guide](https://opencode.ai/docs/install). The plugin does
-  nothing without the `opencode` command on your `$PATH`.
+- **opencode CLI** — install with `npm install -g opencode-ai`, or follow the
+  [install guide](https://opencode.ai/docs). The plugin does nothing without
+  the `opencode` command on your `$PATH`.
 - **zsh 5.1+** — any modern zsh works. No oh‑my‑zsh dependency for the
   standalone path, but `$ZSH_CACHE_DIR` must be set if you want completions
   (oh‑my‑zsh sets this automatically; for standalone shells the plugin falls
@@ -114,6 +114,7 @@ where you left off: `occ`, `ocrc`.
 | `ocdbg`  | `opencode debug`                              | Debugging and troubleshooting    |
 | `ocdb`   | `opencode db`                                 | Database utilities               |
 | `ocdbp`  | `opencode db path`                            | Print database file path         |
+| `ocdbm`  | `opencode db migrate`                         | Migrate JSON data to SQLite      |
 | `ocup`   | `opencode upgrade`                            | Upgrade opencode                 |
 | `ocun`   | `opencode uninstall`                          | Uninstall opencode               |
 | `occom`  | `opencode completion`                         | Print shell completion script    |
