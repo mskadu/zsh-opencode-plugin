@@ -1,7 +1,8 @@
 # opencode plugin
 
-Aliases and completions for the [opencode](https://opencode.ai) CLI — the
-open-source AI coding agent for the terminal.
+Zsh plugin for the [opencode](https://opencode.ai) AI coding agent.
+Compatible with [oh‑my‑zsh](https://github.com/ohmyzsh/ohmyzsh).
+Not yet in the plugin registry — use the custom path below until merged.
 
 ## Prerequisites
 
@@ -16,9 +17,6 @@ open-source AI coding agent for the terminal.
 ## Enable
 
 ### Oh‑my‑zsh (custom plugin)
-
-Not yet in the [oh‑my‑zsh](https://github.com/ohmyzsh/ohmyzsh) plugin registry.
-Use the custom plugins path until it's merged upstream.
 
 ```zsh
 git clone https://github.com/mskadu/zsh-opencode-plugin \
