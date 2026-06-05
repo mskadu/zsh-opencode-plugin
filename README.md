@@ -3,6 +3,16 @@
 Aliases and completions for the [opencode](https://opencode.ai) CLI — the
 open-source AI coding agent for the terminal.
 
+## Prerequisites
+
+- **opencode CLI** — install with `npm install -g @opencode/qd` or follow the
+  [official install guide](https://opencode.ai/docs/install). The plugin does
+  nothing without the `opencode` command on your `$PATH`.
+- **zsh 5.1+** — any modern zsh works. No oh‑my‑zsh dependency for the
+  standalone path, but `$ZSH_CACHE_DIR` must be set if you want completions
+  (oh‑my‑zsh sets this automatically; for standalone shells the plugin falls
+  back to `$HOME/.cache/zsh`).
+
 ## Enable
 
 ### Oh‑my‑zsh (custom plugin)

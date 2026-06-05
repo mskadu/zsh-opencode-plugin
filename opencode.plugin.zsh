@@ -131,6 +131,8 @@ alias occom='opencode completion'
 # Completion wiring
 # -------------------------------------------------------------------
 
+: ${ZSH_CACHE_DIR:="$HOME/.cache/zsh"}
+
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_opencode" ]]; then
   typeset -g -A _comps
   autoload -Uz _opencode
