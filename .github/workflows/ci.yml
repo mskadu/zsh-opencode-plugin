@@ -1,0 +1,37 @@
+name: Plugin quality — zsh syntax, whitespace, completeness
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check zsh syntax (opencode.plugin.zsh)
+        run: zsh -n opencode.plugin.zsh
+
+      - name: Check for trailing whitespace on any line
+        run: |
+          if grep -rn '[[:blank:]]$' . --include='*.zsh' --include='*.md' --exclude-dir=.git; then
+            echo "::error::Trailing whitespace found on lines listed above"
+            exit 1
+          fi
+
+      - name: Check every file ends with a newline
+        run: |
+          failures=0
+          for f in opencode.plugin.zsh README.md; do
+            if [ -n "$(tail -c1 "$f")" ]; then
+              echo "::error::$f does not end with a newline"
+              failures=$((failures + 1))
+            fi
+          done
+          [ "$failures" -eq 0 ]
+
+      - name: Check shipped completion file exists
+        run: test -f completions/_opencode
