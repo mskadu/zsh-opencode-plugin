@@ -10,10 +10,10 @@ fi
 
 alias oc='opencode'
 alias occ='opencode --continue'
-alias ocfork='opencode --fork --continue'
-alias ocmodel='opencode --model'
-alias ocprompt='opencode --prompt'
-alias ocpure='opencode --pure'
+alias ocfc='opencode --fork --continue'
+alias ocm='opencode --model'
+alias ocp='opencode --prompt'
+alias ocpu='opencode --pure'
 
 # -------------------------------------------------------------------
 # Aliases — run (non-interactive)
@@ -21,111 +21,111 @@ alias ocpure='opencode --pure'
 
 alias ocr='opencode run'
 alias ocrc='opencode run --continue'
-alias ocrshare='opencode run --share'
-alias ocrjson='opencode run --format json'
-alias ocrfile='opencode run --file'
-alias ocrattach='opencode run --attach'
+alias ocrs='opencode run --share'
+alias ocrj='opencode run --format json'
+alias ocrf='opencode run --file'
+alias ocra='opencode run --attach'
 alias ocrq='opencode run --dangerously-skip-permissions'
 
 # -------------------------------------------------------------------
 # Aliases — server
 # -------------------------------------------------------------------
 
-alias ocserve='opencode serve'
-alias ocweb='opencode web'
-alias ocattach='opencode attach'
+alias ocs='opencode serve'
+alias ocw='opencode web'
+alias oca='opencode attach'
 alias ocacp='opencode acp'
 
 # -------------------------------------------------------------------
 # Aliases — auth
 # -------------------------------------------------------------------
 
-alias ocauth='opencode auth'
-alias ocauthlogin='opencode auth login'
-alias ocauthls='opencode auth list'
-alias ocauthlogout='opencode auth logout'
+alias ocau='opencode auth'
+alias oclogin='opencode auth login'
+alias ocaul='opencode auth list'
+alias oclogout='opencode auth logout'
 
 # -------------------------------------------------------------------
 # Aliases — models
 # -------------------------------------------------------------------
 
-alias ocmodels='opencode models'
-alias ocmodelsr='opencode models --refresh'
-alias ocmodelsv='opencode models --verbose'
+alias ocmo='opencode models'
+alias ocmor='opencode models --refresh'
+alias ocmov='opencode models --verbose'
 
 # -------------------------------------------------------------------
 # Aliases — MCP
 # -------------------------------------------------------------------
 
-alias ocmcp='opencode mcp'
-alias ocmcpadd='opencode mcp add'
-alias ocmcpls='opencode mcp list'
-alias ocmcpauth='opencode mcp auth'
-alias ocmcplogout='opencode mcp logout'
-alias ocmcpdebug='opencode mcp debug'
+alias ocmc='opencode mcp'
+alias ocmca='opencode mcp add'
+alias ocmcl='opencode mcp list'
+alias ocmcau='opencode mcp auth'
+alias ocmclo='opencode mcp logout'
+alias ocmcd='opencode mcp debug'
 
 # -------------------------------------------------------------------
 # Aliases — agents
 # -------------------------------------------------------------------
 
-alias ocagent='opencode agent'
-alias ocagentls='opencode agent list'
-alias ocagentcreate='opencode agent create'
+alias ocag='opencode agent'
+alias ocagl='opencode agent list'
+alias ocagc='opencode agent create'
 
 # -------------------------------------------------------------------
 # Aliases — sessions
 # -------------------------------------------------------------------
 
-alias ocsession='opencode session'
-alias ocsessionls='opencode session list'
-alias ocsessiondel='opencode session delete'
+alias ocse='opencode session'
+alias ocsel='opencode session list'
+alias ocsed='opencode session delete'
 
 # -------------------------------------------------------------------
 # Aliases — stats
 # -------------------------------------------------------------------
 
-alias ocstats='opencode stats'
-alias ocstatsmodels='opencode stats --models'
+alias ocst='opencode stats'
+alias ocstm='opencode stats --models'
 
 # -------------------------------------------------------------------
 # Aliases — export / import
 # -------------------------------------------------------------------
 
-alias ocexport='opencode export'
-alias ocimport='opencode import'
+alias ocex='opencode export'
+alias ocim='opencode import'
 
 # -------------------------------------------------------------------
 # Aliases — GitHub
 # -------------------------------------------------------------------
 
 alias ocgh='opencode github'
-alias ocghinstall='opencode github install'
-alias ocghrun='opencode github run'
+alias ocghi='opencode github install'
+alias ocghr='opencode github run'
 alias ocpr='opencode pr'
 
 # -------------------------------------------------------------------
 # Aliases — plugins
 # -------------------------------------------------------------------
 
-alias ocplugin='opencode plugin'
+alias ocpl='opencode plugin'
 alias ocplug='opencode plug'
-alias ocpluging='opencode plugin --global'
+alias ocplg='opencode plugin --global'
 
 # -------------------------------------------------------------------
 # Aliases — debug / database
 # -------------------------------------------------------------------
 
-alias ocdebug='opencode debug'
+alias ocdbg='opencode debug'
 alias ocdb='opencode db'
-alias ocdbpath='opencode db path'
+alias ocdbp='opencode db path'
 
 # -------------------------------------------------------------------
 # Aliases — maintenance
 # -------------------------------------------------------------------
 
-alias ocupgrade='opencode upgrade'
-alias ocuninstall='opencode uninstall'
-alias occompletion='opencode completion'
+alias ocup='opencode upgrade'
+alias ocun='opencode uninstall'
+alias occom='opencode completion'
 
 # -------------------------------------------------------------------
 # Completion wiring

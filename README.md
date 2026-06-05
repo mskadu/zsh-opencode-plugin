@@ -18,70 +18,79 @@ plugins=(... opencode)
 | Launch opencode in this project  | `oc`               |
 | Pick up where you left off       | `occ`              |
 | Ask a quick question, no TUI     | `ocr "question"`   |
-| Attach to a remote server        | `ocattach <url>`   |
-| Check your usage and costs       | `ocstats`          |
-| Upgrade to the latest version    | `ocupgrade`        |
+| Attach to a remote server        | `oca <url>`        |
+| Check your usage and costs       | `ocst`             |
+| Upgrade to the latest version    | `ocup`             |
 
 ## Aliases
 
-All aliases use the `oc` prefix. The first letter after `oc` identifies the
-command group: `r` for run, `s` for serve, `m` for models, and so on.
+All aliases use the `oc` prefix. The scheme helps you guess them:
 
-| Alias           | Command                                        | Description                      |
-| --------------- | ---------------------------------------------- | -------------------------------- |
-| `oc`            | `opencode`                                     | Launch TUI                       |
-| `occ`           | `opencode --continue`                          | Continue last session            |
-| `ocfork`        | `opencode --fork --continue`                   | Fork last session                |
-| `ocmodel`       | `opencode --model`                             | Launch with a specific model     |
-| `ocprompt`      | `opencode --prompt`                            | Launch with an initial prompt    |
-| `ocpure`        | `opencode --pure`                              | Launch without plugins           |
-| `ocr`           | `opencode run`                                 | Run non-interactive              |
-| `ocrc`          | `opencode run --continue`                      | Continue in run mode             |
-| `ocrshare`      | `opencode run --share`                         | Run and share the session        |
-| `ocrjson`       | `opencode run --format json`                   | Run with JSON output             |
-| `ocrfile`       | `opencode run --file`                          | Run with files attached          |
-| `ocrattach`     | `opencode run --attach`                        | Run attached to a server         |
-| `ocrq`          | `opencode run --dangerously-skip-permissions`  | Quick run (skip permission asks) |
-| `ocserve`       | `opencode serve`                               | Start headless server            |
-| `ocweb`         | `opencode web`                                 | Start server with web UI         |
-| `ocattach`      | `opencode attach`                              | Attach TUI to running server     |
-| `ocacp`         | `opencode acp`                                 | Start ACP server                 |
-| `ocauth`        | `opencode auth`                                | Manage credentials               |
-| `ocauthlogin`   | `opencode auth login`                          | Log in to a provider             |
-| `ocauthls`      | `opencode auth list`                           | List authenticated providers     |
-| `ocauthlogout`  | `opencode auth logout`                         | Log out of a provider            |
-| `ocmodels`      | `opencode models`                              | List available models            |
-| `ocmodelsr`     | `opencode models --refresh`                    | Refresh models cache             |
-| `ocmodelsv`     | `opencode models --verbose`                    | List models with metadata        |
-| `ocmcp`         | `opencode mcp`                                 | Manage MCP servers               |
-| `ocmcpadd`      | `opencode mcp add`                             | Add an MCP server                |
-| `ocmcpls`       | `opencode mcp list`                            | List MCP servers                 |
-| `ocmcpauth`     | `opencode mcp auth`                            | Authenticate with an MCP server  |
-| `ocmcplogout`   | `opencode mcp logout`                          | Remove MCP credentials           |
-| `ocmcpdebug`    | `opencode mcp debug`                           | Debug MCP connection issues      |
-| `ocagent`       | `opencode agent`                               | Manage agents                    |
-| `ocagentls`     | `opencode agent list`                          | List agents                      |
-| `ocagentcreate` | `opencode agent create`                        | Create a new agent               |
-| `ocsession`     | `opencode session`                             | Manage sessions                  |
-| `ocsessionls`   | `opencode session list`                        | List sessions                    |
-| `ocsessiondel`  | `opencode session delete`                      | Delete a session                 |
-| `ocstats`       | `opencode stats`                               | Show usage statistics            |
-| `ocstatsmodels` | `opencode stats --models`                      | Show per-model usage breakdown   |
-| `ocexport`      | `opencode export`                              | Export session data as JSON      |
-| `ocimport`      | `opencode import`                              | Import session from JSON/URL     |
-| `ocgh`          | `opencode github`                              | Manage GitHub agent              |
-| `ocghinstall`   | `opencode github install`                      | Install GitHub agent             |
-| `ocghrun`       | `opencode github run`                          | Run GitHub agent                 |
-| `ocpr`          | `opencode pr`                                  | Fetch PR and run opencode on it  |
-| `ocplugin`      | `opencode plugin`                              | Install a plugin                 |
-| `ocplug`        | `opencode plug`                                | Shorthand for `plugin`           |
-| `ocpluging`     | `opencode plugin --global`                     | Install plugin globally          |
-| `ocdebug`       | `opencode debug`                               | Debugging and troubleshooting    |
-| `ocdb`          | `opencode db`                                  | Database utilities               |
-| `ocdbpath`      | `opencode db path`                             | Print database file path         |
-| `ocupgrade`     | `opencode upgrade`                             | Upgrade opencode                 |
-| `ocuninstall`   | `opencode uninstall`                           | Uninstall opencode               |
-| `occompletion`  | `opencode completion`                          | Print shell completion script    |
+| After `oc` | What it means                     | Examples                              |
+| ---------- | --------------------------------- | ------------------------------------- |
+| 1 letter   | Flag name                         | `ocm` = `--model`, `ocp` = `--prompt` |
+| 2 letters  | Subcommand                        | `ocr` = run, `ocmo` = models          |
+| 3+ letters | Subcommand + flag or subcommand   | `ocmor` = models `--refresh`          |
+| Natural    | Common verb from other tools      | `oclogin` / `oclogout`                |
+
+Prefix `oc` runs `opencode` (the TUI). Add `c` for `--continue` to resume
+where you left off: `occ`, `ocrc`.
+
+| Alias    | Command                                       | Description                      |
+| -------- | --------------------------------------------- | -------------------------------- |
+| `oc`     | `opencode`                                    | Launch TUI                       |
+| `occ`    | `opencode --continue`                         | Continue last session            |
+| `ocfc`   | `opencode --fork --continue`                  | Fork last session                |
+| `ocm`    | `opencode --model`                            | Launch with a specific model     |
+| `ocp`    | `opencode --prompt`                           | Launch with an initial prompt    |
+| `ocpu`   | `opencode --pure`                             | Launch without plugins           |
+| `ocr`    | `opencode run`                                | Run non-interactive              |
+| `ocrc`   | `opencode run --continue`                     | Continue in run mode             |
+| `ocrs`   | `opencode run --share`                        | Run and share the session        |
+| `ocrj`   | `opencode run --format json`                  | Run with JSON output             |
+| `ocrf`   | `opencode run --file`                         | Run with files attached          |
+| `ocra`   | `opencode run --attach`                       | Run attached to a server         |
+| `ocrq`   | `opencode run --dangerously-skip-permissions` | Quick run (skip permission asks) |
+| `ocs`    | `opencode serve`                              | Start headless server            |
+| `ocw`    | `opencode web`                                | Start server with web UI         |
+| `oca`    | `opencode attach`                             | Attach TUI to running server     |
+| `ocacp`  | `opencode acp`                                | Start ACP server                 |
+| `ocau`   | `opencode auth`                               | Manage credentials               |
+| `oclogin`| `opencode auth login`                         | Log in to a provider             |
+| `ocaul`  | `opencode auth list`                          | List authenticated providers     |
+| `oclogout`| `opencode auth logout`                       | Log out of a provider            |
+| `ocmo`   | `opencode models`                             | List available models            |
+| `ocmor`  | `opencode models --refresh`                   | Refresh models cache             |
+| `ocmov`  | `opencode models --verbose`                   | List models with metadata        |
+| `ocmc`   | `opencode mcp`                                | Manage MCP servers               |
+| `ocmca`  | `opencode mcp add`                            | Add an MCP server                |
+| `ocmcl`  | `opencode mcp list`                           | List MCP servers                 |
+| `ocmcau` | `opencode mcp auth`                           | Authenticate with an MCP server  |
+| `ocmclo` | `opencode mcp logout`                         | Remove MCP credentials           |
+| `ocmcd`  | `opencode mcp debug`                          | Debug MCP connection issues      |
+| `ocag`   | `opencode agent`                              | Manage agents                    |
+| `ocagl`  | `opencode agent list`                         | List agents                      |
+| `ocagc`  | `opencode agent create`                       | Create a new agent               |
+| `ocse`   | `opencode session`                            | Manage sessions                  |
+| `ocsel`  | `opencode session list`                       | List sessions                    |
+| `ocsed`  | `opencode session delete`                     | Delete a session                 |
+| `ocst`   | `opencode stats`                              | Show usage statistics            |
+| `ocstm`  | `opencode stats --models`                     | Show per-model usage breakdown   |
+| `ocex`   | `opencode export`                             | Export session data as JSON      |
+| `ocim`   | `opencode import`                             | Import session from JSON/URL     |
+| `ocgh`   | `opencode github`                             | Manage GitHub agent              |
+| `ocghi`  | `opencode github install`                     | Install GitHub agent             |
+| `ocghr`  | `opencode github run`                         | Run GitHub agent                 |
+| `ocpr`   | `opencode pr`                                 | Fetch PR and run opencode on it  |
+| `ocpl`   | `opencode plugin`                             | Install a plugin                 |
+| `ocplug` | `opencode plug`                               | Shorthand for `plugin`           |
+| `ocplg`  | `opencode plugin --global`                    | Install plugin globally          |
+| `ocdbg`  | `opencode debug`                              | Debugging and troubleshooting    |
+| `ocdb`   | `opencode db`                                 | Database utilities               |
+| `ocdbp`  | `opencode db path`                            | Print database file path         |
+| `ocup`   | `opencode upgrade`                            | Upgrade opencode                 |
+| `ocun`   | `opencode uninstall`                          | Uninstall opencode               |
+| `occom`  | `opencode completion`                         | Print shell completion script    |
 
 ## Examples
 
@@ -96,22 +105,22 @@ occ
 ocr "What does this function do?"
 
 # List available models from all configured providers
-ocmodels
+ocmo
 
 # Run with JSON output, useful for scripting
-ocrjson "Check for security issues" > audit.json
+ocrj "Check for security issues" > audit.json
 
 # Start a headless server that other terminals can attach to
-ocserve --port 4096
+ocs --port 4096
 
 # Attach a TUI to that server from another terminal
-ocattach http://localhost:4096
+oca http://localhost:4096
 
 # Show token usage and cost
-ocstats
+ocst
 
 # Install a plugin
-ocplugin opencode-model-scout
+ocpl opencode-model-scout
 ```
 
 ## Completion
