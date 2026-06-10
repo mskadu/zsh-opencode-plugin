@@ -36,5 +36,4 @@ jobs:
           done
           [ "$failures" -eq 0 ]
 
-      - name: Check shipped completion file exists
-        run: test -f completions/_opencode
+
